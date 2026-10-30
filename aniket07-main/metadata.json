@@ -1,0 +1,6 @@
+{
+  "name": "College-to-Home Route Planner & Real-Time Analytics",
+  "description": "Multi-objective road network graph optimization and real-time transit analytics from GGS College of Modern Technology using Dijkstra, A*, and Bellman-Ford algorithms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

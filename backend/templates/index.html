@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">YOUR NEXT JOURNEY</p><h1>Plan your route</h1><p class="subtle">Choose a destination and compare available routes.</p></div><div class="head-actions"><button class="btn secondary" id="reset-btn">Reset</button></div></div>
+<div class="workspace" id="view-plan">
+  <aside class="panel controls">
+    <div class="panel-title"><span>Journey details</span><span class="tiny-label">ROUTE SETUP</span></div>
+    <form id="route-form">
+      <label for="origin">Starting point</label>
+      <div class="field with-icon"><span>●</span><input id="origin" name="origin" value="{{ college_name }}" autocomplete="off" required></div>
+      <label for="destination">Destination</label>
+      <div class="field with-icon destination"><span>⌖</span><input id="destination" name="destination" placeholder="Search address, village or city" autocomplete="off" required><div id="suggestions" class="suggestions hidden"></div></div>
+      <div class="field-row">
+        <div><label for="mode">Travel mode</label><select id="mode"><option value="car">Car</option><option value="bike">Bike</option><option value="walking">Walking</option><option value="bus">Bus (unavailable)</option></select></div>
+        <div><label for="preference">Optimize for</label><select id="preference"><option value="balanced">Balanced</option><option value="fastest">Fastest</option><option value="shortest">Shortest</option><option value="cost">Lowest cost</option></select></div>
+      </div>
+      <button class="btn primary full" type="submit" id="find-btn"><span>Find route</span><span>↗</span></button>
+      <button class="btn secondary full" type="button" id="compare-btn">Compare routes</button>
+    </form>
+    <div class="route-legend"><span><i class="legend-dot purple"></i> Recommended</span><span><i class="legend-dot blue"></i> Alternative</span></div>
+    <div class="notice" id="notice" role="status">Enter a destination to get started.</div>
+  </aside>
+  <section class="map-column">
+    <div class="map-toolbar"><div><strong>Route map</strong><span id="map-caption">Chandigarh University, Gharuan</span></div><div class="toolbar-actions"><button class="mini-btn" id="fit-btn">Fit route</button><button class="mini-btn" id="fullscreen-btn">Full screen</button></div></div>
+    <div id="map"></div>
+    <div class="map-bottom"><span><i class="legend-line purple-line"></i> Recommended route</span><span><i class="legend-line blue-line"></i> Alternatives</span><span class="muted">© OpenStreetMap</span></div>
+  </section>
+</div>
+<section class="results-section" id="results-section">
+  <div class="section-head"><div><h2>Route options</h2><p class="subtle" id="results-subtitle">Results will appear here after a route search.</p></div><div class="results-actions"><button class="btn secondary small" id="save-btn" disabled>Save route</button><button class="btn secondary small" id="export-btn" disabled>Export CSV</button><button class="btn secondary small" id="share-btn" disabled>Share</button></div></div>
+  <div id="results" class="results-grid"><div class="empty-state"><span class="empty-icon">⌁</span><strong>No routes yet</strong><p>Search a destination to see distance, time and estimated cost.</p></div></div>
+</section>
+<section id="view-saved" class="utility-view hidden"><div class="section-head"><div><h2>Saved routes</h2><p class="subtle">Routes saved on this device.</p></div></div><div id="saved-list" class="saved-list"></div></section>
+<section id="view-history" class="utility-view hidden"><div class="section-head"><div><h2>Route history</h2><p class="subtle">Recent searches stay in this browser only.</p></div><button class="btn secondary small" id="clear-history">Clear history</button></div><div id="history-list" class="saved-list"></div></section>
+<section id="view-settings" class="utility-view hidden"><div class="settings-card"><div class="section-head"><div><h2>Travel settings</h2><p class="subtle">Used for estimated fuel cost.</p></div></div><div class="settings-grid"><div><label for="mileage">Vehicle mileage (km/L)</label><input id="mileage" type="number" min="1" max="200" value="15"></div><div><label for="fuel-price">Fuel price (₹/L)</label><input id="fuel-price" type="number" min="0" max="1000" value="100"></div><div><label for="units">Distance units</label><select id="units"><option value="km">Kilometres</option><option value="mi">Miles</option></select></div></div><p class="hint">Bus routing and live traffic are not provided by the current routing service. Saved routes and history are stored locally in this browser.</p><button class="btn primary" id="save-settings">Save settings</button><span class="settings-feedback" id="settings-feedback"></span></div></section>
+{% endblock %}

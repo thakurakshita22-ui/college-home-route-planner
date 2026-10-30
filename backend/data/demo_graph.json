@@ -1,0 +1,43 @@
+{
+  "label": "Offline demonstration graph \u2014 not used for live navigation",
+  "nodes": [
+    {
+      "id": "A",
+      "name": "Gharuan"
+    },
+    {
+      "id": "B",
+      "name": "Kharar"
+    },
+    {
+      "id": "C",
+      "name": "Landran"
+    },
+    {
+      "id": "D",
+      "name": "Mohali"
+    }
+  ],
+  "edges": [
+    {
+      "from": "A",
+      "to": "B",
+      "distance_km": 12.0
+    },
+    {
+      "from": "B",
+      "to": "D",
+      "distance_km": 11.0
+    },
+    {
+      "from": "A",
+      "to": "C",
+      "distance_km": 14.0
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "distance_km": 9.0
+    }
+  ]
+}

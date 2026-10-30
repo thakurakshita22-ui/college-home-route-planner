@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>{% block title %}Route Planner{% endblock %}</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand-mark">↗</span><span>Route Planner<small>College to Home</small></span></a>
+  <nav><button class="nav-link active" data-view="plan">Plan route</button><button class="nav-link" data-view="saved">Saved routes</button><button class="nav-link" data-view="history">History</button><button class="nav-link" data-view="settings">Settings</button></nav>
+  <span class="status-pill"><i></i> Map services online</span>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer>Map data © OpenStreetMap contributors · Routing estimates by OSRM · <span id="traffic-status">Live traffic unavailable</span></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+</body></html>
